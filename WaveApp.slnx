@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Wave.Core/Wave.Core.csproj" Id="a2ab6670-dca2-4fe6-9879-70f58d239bb5" />
+  <Project Path="WaveApp/WaveApp.csproj" />
+</Solution>

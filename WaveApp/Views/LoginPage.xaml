@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WaveApp.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:WaveApp.ViewModels"
+    Title="Login"
+    BackgroundColor="#0F1117"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid HorizontalOptions="Center" VerticalOptions="Center">
+
+        <Border
+            Padding="36,32"
+            BackgroundColor="#1a1c26"
+            HorizontalOptions="Center"
+            Stroke="#2e3044"
+            StrokeThickness="0.5"
+            VerticalOptions="Center"
+            WidthRequest="340">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Spacing="0">
+
+                <Image
+                    Margin="0,0,0,20"
+                    Aspect="AspectFit"
+                    Source="logo_mark.png"
+                    WidthRequest="120" />
+
+                <Label
+                    Margin="0,0,0,6"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Bem-vindo de volta"
+                    TextColor="#e8eaf0" />
+
+                <Label
+                    Margin="0,0,0,28"
+                    FontSize="13"
+                    Text="Acesse sua conta para continuar"
+                    TextColor="#6b7080" />
+
+                <Label
+                    Margin="0,0,0,6"
+                    FontSize="11"
+                    Text="USUÁRIO"
+                    TextColor="#8890a4" />
+
+                <Entry
+                    Margin="0,0,0,16"
+                    BackgroundColor="#0F1117"
+                    PlaceholderColor="#555"
+                    Text="{Binding Login}"
+                    TextColor="#e8eaf0" />
+
+                <Label
+                    Margin="0,0,0,6"
+                    FontSize="11"
+                    Text="SENHA"
+                    TextColor="#8890a4" />
+
+                <Entry
+                    Margin="0,0,0,8"
+                    BackgroundColor="#0F1117"
+                    IsPassword="True"
+                    Text="{Binding Senha}"
+                    TextColor="#e8eaf0" />
+
+                <Label
+                    Margin="0,4,0,0"
+                    FontSize="12"
+                    IsVisible="{Binding TemErro}"
+                    Text="{Binding ErroMessage}"
+                    TextColor="#E24B4A" />
+
+                <ActivityIndicator
+                    Margin="0,8,0,8"
+                    HeightRequest="30"
+                    IsRunning="{Binding Carregando}"
+                    IsVisible="{Binding Carregando}"
+                    Color="#378ADD" />
+
+                <Button
+                    Margin="0,8,0,0"
+                    Padding="0,11"
+                    BackgroundColor="#378ADD"
+                    Command="{Binding EntrarCommand}"
+                    CornerRadius="6"
+                    HorizontalOptions="Fill"
+                    Text="Entrar"
+                    TextColor="White" />
+
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

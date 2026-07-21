@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WaveApp.Views.AlunoView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:WaveApp.ViewModels"
+    x:DataType="vm:AlunoViewModel"
+    BackgroundColor="#0F1117"
+    Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *">
+
+        <!-- Topbar -->
+        <Grid Grid.Row="0" Padding="24,18" ColumnDefinitions="*, Auto">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Alunos" TextColor="#e8eaf0" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="Gerenciamento de alunos" TextColor="#4a5068" FontSize="12"/>
+            </VerticalStackLayout>
+            <Button
+                Grid.Column="1"
+                Text="+ Novo Aluno"
+                Command="{Binding NovoAlunoCommand}"
+                BackgroundColor="#378ADD"
+                TextColor="White"
+                CornerRadius="7"
+                Padding="16,8"
+                FontSize="13"/>
+        </Grid>
+
+        <BoxView Grid.Row="0" VerticalOptions="End" HeightRequest="0.5" BackgroundColor="#2a2c36"/>
+
+        <!-- Cards resumo -->
+        <HorizontalStackLayout Grid.Row="1" Padding="24,18" Spacing="14">
+
+            <Border BackgroundColor="#1a1c26" Stroke="#2a2c36" StrokeThickness="0.5" Padding="14" MinimumWidthRequest="150">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <HorizontalStackLayout Spacing="14">
+                    <Border BackgroundColor="#0c2a4a" WidthRequest="34" HeightRequest="34">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <Label Text="👥" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="TOTAL" TextColor="#4a5068" FontSize="10"/>
+                        <Label Text="{Binding TotalAlunos}" TextColor="#e8eaf0" FontSize="22" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="#1a1c26" Stroke="#2a2c36" StrokeThickness="0.5" Padding="14" MinimumWidthRequest="150">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <HorizontalStackLayout Spacing="14">
+                    <Border BackgroundColor="#0e2a1a" WidthRequest="34" HeightRequest="34">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <Label Text="✅" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="ATIVOS" TextColor="#4a5068" FontSize="10"/>
+                        <Label Text="{Binding AlunosAtivos}" TextColor="#e8eaf0" FontSize="22" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="#1a1c26" Stroke="#2a2c36" StrokeThickness="0.5" Padding="14" MinimumWidthRequest="150">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <HorizontalStackLayout Spacing="14">
+                    <Border BackgroundColor="#2a0e0e" WidthRequest="34" HeightRequest="34">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8"/>
+                        </Border.StrokeShape>
+                        <Label Text="⛔" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="INATIVOS" TextColor="#4a5068" FontSize="10"/>
+                        <Label Text="{Binding AlunosInativos}" TextColor="#e8eaf0" FontSize="22" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </Border>
+
+        </HorizontalStackLayout>
+
+        <!-- Busca -->
+        <SearchBar
+            Grid.Row="2"
+            Margin="24,0,24,14"
+            BackgroundColor="#1a1c26"
+            PlaceholderColor="#4a5068"
+            Placeholder="Buscar aluno por nome..."
+            TextColor="#e8eaf0"
+            Text="{Binding Busca}"/>
+
+        <!-- Lista -->
+        <CollectionView
+            Grid.Row="3"
+            Margin="24,0,24,24"
+            ItemsSource="{Binding AlunosFiltrados}">
+
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="*, 120, 80, 140" Padding="12,10" BackgroundColor="#1a1c26">
+                    <Label Grid.Column="0" Text="NOME" TextColor="#4a5068" FontSize="11"/>
+                    <Label Grid.Column="1" Text="VENCIMENTO" TextColor="#4a5068" FontSize="11"/>
+                    <Label Grid.Column="2" Text="STATUS" TextColor="#4a5068" FontSize="11"/>
+                    <Label Grid.Column="3" Text="AÇÕES" TextColor="#4a5068" FontSize="11"/>
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vm:AlunoItem">
+                    <Grid ColumnDefinitions="*, 120, 80, 140" Padding="12,11">
+
+                        <!-- Nome -->
+                        <HorizontalStackLayout Grid.Column="0" Spacing="10" VerticalOptions="Center">
+                            <Border BackgroundColor="#1e2438" WidthRequest="30" HeightRequest="30">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="15"/>
+                                </Border.StrokeShape>
+                                <Label Text="{Binding Iniciais}" TextColor="#378ADD" FontSize="11"
+                                       FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="{Binding Nome}" TextColor="#c8cad4" FontSize="13" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <!-- Vencimento -->
+                        <Label Grid.Column="1" Text="{Binding Vencimento}" TextColor="#6b7080"
+                               FontSize="12" VerticalOptions="Center"/>
+
+                        <!-- Status -->
+                        <Border Grid.Column="2"
+                                BackgroundColor="{Binding StatusBackground}"
+                                Padding="10,2" HorizontalOptions="Start" VerticalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+                            <Label Text="{Binding StatusTexto}" TextColor="{Binding StatusCor}" FontSize="11"/>
+                        </Border>
+
+                        <!-- Ações -->
+                        <HorizontalStackLayout Grid.Column="3" Spacing="6" VerticalOptions="Center">
+                            <Button Text="Editar"
+                                    Command="{Binding EditarCommand}"
+                                    BackgroundColor="#1e2a1e" TextColor="#1D9E75"
+                                    CornerRadius="6" Padding="10,5" FontSize="11"/>
+                            <Button Text="Excluir"
+                                    Command="{Binding ExcluirCommand}"
+                                    BackgroundColor="#2a1414" TextColor="#E24B4A"
+                                    CornerRadius="6" Padding="10,5" FontSize="11"/>
+                        </HorizontalStackLayout>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

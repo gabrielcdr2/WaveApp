@@ -1,0 +1,12 @@
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\bin\Debug\net10.0\Wave.Core.deps.json
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\bin\Debug\net10.0\Wave.Core.dll
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\bin\Debug\net10.0\Wave.Core.pdb
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\Wave.Core.csproj.AssemblyReference.cache
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\Wave.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\Wave.Core.AssemblyInfoInputs.cache
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\Wave.Core.AssemblyInfo.cs
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\Wave.Core.csproj.CoreCompileInputs.cache
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\Wave.Core.dll
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\refint\Wave.Core.dll
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\Wave.Core.pdb
+C:\Users\gabri\source\repos\WaveApp\Wave.Core\obj\Debug\net10.0\ref\Wave.Core.dll

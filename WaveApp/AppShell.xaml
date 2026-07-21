@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WaveApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:WaveApp.Views"
+    FlyoutBackgroundColor="#161820"
+    Shell.FlyoutBehavior="Locked">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="SelectedBackgroundColor">#1e2438</Color>
+            <Color x:Key="NormalBackgroundColor">Transparent</Color>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <Border
+            BackgroundColor="#161820"
+            Stroke="#2a2c36"
+            StrokeThickness="1">
+
+            <HorizontalStackLayout Padding="18,20" Spacing="8">
+                <Border
+                    BackgroundColor="#378ADD"
+                    HeightRequest="28"
+                    WidthRequest="28">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="6" />
+                    </Border.StrokeShape>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="13"
+                        HorizontalOptions="Center"
+                        Text="W"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+                </Border>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    Text="WaveApp"
+                    TextColor="#e8eaf0"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <Border
+            BackgroundColor="#161820"
+            Stroke="#2a2c36"
+            StrokeThickness="1">
+
+            <HorizontalStackLayout Padding="12" Spacing="8">
+                <Border
+                    BackgroundColor="#1e2438"
+                    HeightRequest="28"
+                    WidthRequest="28">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="14" />
+                    </Border.StrokeShape>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="11"
+                        HorizontalOptions="Center"
+                        Text="AD"
+                        TextColor="#378ADD"
+                        VerticalOptions="Center" />
+                </Border>
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Admin"
+                        TextColor="#e8eaf0" />
+                    <Label
+                        FontSize="11"
+                        Text="Administrador"
+                        TextColor="#4a5068" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+        </Border>
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem Title="Dashboard" Route="DashboardPage">
+        <ShellContent ContentTemplate="{DataTemplate views:DashboardView}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Alunos" Route="AlunoPage">
+        <ShellContent ContentTemplate="{DataTemplate views:AlunoView}" />
+    </FlyoutItem>
+
+
+
+</Shell>
